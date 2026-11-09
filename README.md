@@ -3,12 +3,12 @@
 ## Plan
 For the MVP version I'll want to follow the following plan, and then continue to the abstract original plan
 - [ ] Allow the following options to be set and remove with local management:
-  - [-] Set DNS without the user ability to change it back
-  - [-] Permit the user from remove the client from its device
-  - [-] Hide and show apps by feature
+  - [x] Set DNS without the user ability to change it back
+  - [x] Prevent the user from remove the client from its device
+  - [x] Hide and show apps by feature
   - [ ] Install new apps
   - [ ] Manage other DPM options
-- [ ] Communicate with a remove CNC server
+- [ ] Communicate with a remote CNC server
   - [ ] Registration
   - [ ] Manage connection and commands
   - [ ] Keep connection alive
