@@ -38,11 +38,11 @@ For the MVP version I'll want to follow the following plan, and then continue to
 > Every time you install a new update to the app, you should remove the active admin from the app with the following command, and update the installation you need to give it back.
 - Activate the app:
 ```
-adb shell dpm set-device-owner com.yeudaby.bengate.client.mvp/.core.receivers.BengateDeviceAdminReceiver 
+adb shell dpm set-device-owner com.yeudaby.bengate.client/.core.receivers.BengateDeviceAdminReceiver 
 ```
 - Deactivate:
 ```
-adb shell dpm remove-active-admin com.yeudaby.bengate.client.mvp/.core.receivers.BengateDeviceAdminReceiver
+adb shell dpm remove-active-admin com.yeudaby.bengate.client/.core.receivers.BengateDeviceAdminReceiver
 ```
 - Dump:
 ```
