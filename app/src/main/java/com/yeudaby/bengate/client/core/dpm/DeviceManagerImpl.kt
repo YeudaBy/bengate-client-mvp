@@ -48,8 +48,13 @@ class DeviceManagerImpl @Inject constructor(
         return dpm.getGlobalPrivateDnsHost(componentName)
     }
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun removePrivateDNS() {
-        TODO("Not yet implemented")
+        dpm.setGlobalPrivateDnsModeOpportunistic(componentName)
+    }
+
+    override fun blockAppFromUninstall(packageName: String) {
+        dpm.setUninstallBlocked(componentName, packageName, true)
     }
 
     override fun isDeviceManaged(): Boolean {
@@ -57,7 +62,7 @@ class DeviceManagerImpl @Inject constructor(
     }
 
     override fun activate() {
-        dpm.setUninstallBlocked(componentName, context.packageName, true)
+        blockAppFromUninstall(context.packageName)
         dpm.setDeviceOwnerLockScreenInfo(componentName, "Device Managed By Bengate.org")
         dpm.addUserRestriction(componentName, UserManager.DISALLOW_ADD_USER)
         dpm.addUserRestriction(componentName, UserManager.DISALLOW_APPS_CONTROL)
