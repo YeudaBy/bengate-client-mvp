@@ -5,18 +5,44 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.yeudaby.bengate.client.core.dpm.DeviceManager
+import com.yeudaby.bengate.client.repositories.CommandRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import jakarta.inject.Inject
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlin.collections.map
 
 @HiltViewModel
 class HomeScreenViewModel @Inject constructor(
     private val deviceManager: DeviceManager,
+    private val commandRepository: CommandRepository
 ): ViewModel() {
+
+    enum class Status {
+        LOADING,
+        ERROR
+    }
+
+    private val _state = MutableStateFlow<Status?>(null)
+    val state = _state.asStateFlow()
+
+
+    fun handleCommands() {
+        try {
+            _state.value = Status.LOADING
+            viewModelScope.launch {
+                val commands = commandRepository.getCommands()
+                commandRepository.handleCommands(commands)
+                _state.value = null
+            }
+        } catch (_: Exception) {
+            _state.value = Status.ERROR
+        }
+    }
 
     fun getDeviceManager(): DeviceManager {
         return deviceManager

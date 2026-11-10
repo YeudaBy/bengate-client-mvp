@@ -26,6 +26,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -123,6 +124,7 @@ fun DnsManagement(deviceManager: DeviceManager) {
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
@@ -138,6 +140,8 @@ fun HomeScreen(
             Color(0xFFd0fff8.toInt()),
         )
 
+    val status by viewModel.state.collectAsState()
+
     Scaffold(
         content = { innerPadding ->
             ;
@@ -146,6 +150,12 @@ fun HomeScreen(
             ) {
 
                 Spacer(Modifier.height(50.dp))
+
+                Button(onClick = viewModel::handleCommands) {
+                    Text("Handle Commands")
+                }
+
+                Text(status.toString())
 
                 Button(onClick = viewModel.getDeviceManager()::activate) {
                     Text("Activate")
