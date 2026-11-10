@@ -52,6 +52,11 @@ adb shell dumpsys device_policy
 
 > P.S: I really should build a gradle commands for that 
 
+## Security
+- [ ] Disable plantext requests
+- [ ] SSL Pinning
+- [ ] JA3 validation
+
 ## TODO
 1. [ ] In network manager, add fallback domains logic: if the domain answer with the correct behavior - we assume that the main domain is not available.
 2. [ ] Allow updates for the client from the client, but ensure the signature from the gh action
