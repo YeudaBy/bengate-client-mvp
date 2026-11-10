@@ -1,4 +1,4 @@
-package com.yeudaby.bengate.client.mvp.core.dpm
+package com.yeudaby.bengate.client.core.dpm
 
 import android.content.Context
 import android.os.Build

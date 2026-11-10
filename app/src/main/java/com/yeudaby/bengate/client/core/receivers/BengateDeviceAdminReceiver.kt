@@ -1,4 +1,4 @@
-package com.yeudaby.bengate.client.mvp.core.receivers
+package com.yeudaby.bengate.client.core.receivers
 
 import android.app.admin.DeviceAdminReceiver
 

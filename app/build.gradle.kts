@@ -7,13 +7,13 @@ plugins {
 }
 
 android {
-    namespace = "com.yeudaby.bengate.client.mvp"
+    namespace = "com.yeudaby.bengate.client"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "com.yeudaby.bengate.client.mvp"
+        applicationId = "com.yeudaby.bengate.client"
         minSdk = 24
         targetSdk = 37
         versionCode = 1

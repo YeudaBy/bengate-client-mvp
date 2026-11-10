@@ -1,9 +1,8 @@
-package com.yeudaby.bengate.client.mvp.di
+package com.yeudaby.bengate.client.di
 
 import android.content.Context
-import com.yeudaby.bengate.client.mvp.core.dpm.DeviceManager
-import com.yeudaby.bengate.client.mvp.core.dpm.DeviceManagerImpl
-import dagger.Binds
+import com.yeudaby.bengate.client.core.dpm.DeviceManager
+import com.yeudaby.bengate.client.core.dpm.DeviceManagerImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
