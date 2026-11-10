@@ -10,7 +10,8 @@ For the MVP version I'll want to follow the following plan, and then continue to
   - [ ] Manage other DPM options
 - [ ] Communicate with a remote CNC server
   - [ ] Registration
-  - [ ] Manage connection and commands
+  - [x] Manage connection and commands
+    - TODO: design the communication sessions, the commands architecture and hierarchy 
   - [ ] Keep connection alive
 - [ ] Complete installation flow without the user able to interrupt
   - [ ] QR Code Provisioning // TODO: read the docs
