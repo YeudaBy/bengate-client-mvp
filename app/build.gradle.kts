@@ -55,6 +55,8 @@ dependencies {
     // Network and parsing
     implementation(libs.okhttp)
     implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
 
     // DI
     implementation(libs.hilt.android)
